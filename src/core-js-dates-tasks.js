@@ -65,7 +65,7 @@ function getDayName(date) {
  * Date('2024-02-16T00:00:00Z') => Date('2024-02-23T00:00:00Z')
  */
 function getNextFriday(date) {
-  const currentDay = date.getDay();
+  const currentDay = date.getUTCDay();
   const dayToFriday = 4 - currentDay;
   let dayToNextFriday;
 
