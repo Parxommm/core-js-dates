@@ -304,7 +304,15 @@ function getWorkSchedule(period, countWorkDays, countOffDays) {
   while (start <= end) {
     for (let i = countWorkDays; i > 0; i -= 1) {
       if (start <= end) {
-        dates.push(start.toLocaleDateString().replace(/[^apm\d]+/gi, '-'));
+        dates.push(
+          start
+            .toLocaleDateString('en-GB', {
+              day: '2-digit',
+              month: '2-digit',
+              year: 'numeric',
+            })
+            .replace(/[^apm\d]+/gi, '-')
+        );
       }
       start.setDate(start.getDate() + 1);
     }
